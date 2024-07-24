@@ -856,6 +856,7 @@ class GstExtension(Extension):
                 flags += [ConstructOnlyFlag()]
             elif prop['construct']:
                 flags += [ConstructFlag()]
+            auto_generated = 'auto-generated' in prop and prop['auto-generated']
 
             prop_type_name = self._remember_symbol_type(
                 prop["type"], pagename)
@@ -879,6 +880,7 @@ class GstExtension(Extension):
                     extra={'gst-element-name': pagename},
                 )
             assert sym
+            sym.auto_generated = auto_generated
 
             if not self.app.database.get_comment(unique_name):
                 comment = Comment(unique_name, Comment(name=name),

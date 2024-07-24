@@ -79,7 +79,7 @@ class CheckMissingSinceMarkersExtension(Extension):
             if name in prev_symbols:
                 continue
 
-            if not self.__check_has_since(sym):
+            if sym.auto_generated is False and not self.__check_has_since(sym):
                 # It is OK for a symbol to not have a Since tag when its
                 # documentation is not exposed (for instance if it has
                 # been marked as private)

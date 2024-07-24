@@ -54,6 +54,7 @@ class Symbol:
         self.project_name = None
         self.parent_name = None
         self.aliases = []
+        self.auto_generated = False
 
     def __repr__(self):
         return "%s(unique_name=%s, filename=%s, project=%s)" % (
